@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>	
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+ 
+</head>
+
+<body>
+	<div class="container">
+	<center>
+	<form method="POST">
+
+	      <input type="radio" id="box" name="selectype" value="Box">
+	      <label for="html">Box with Text</label><br>
+	      <input type="radio" id="css" name="selectype" value="DragandDrop">
+	      <label for="css">Drag Target</label><br>
+	      <input type="submit">
+	      <br />
+	  </form>	
+	<table border="0" width="50%">
+		<tr>
+		<td width="50%" align="center">
+			<video id="input_video" class="input_video" autoplay></video>
+		</td>
+		</tr>
+	 </table>
+    </center>
+  </div>
+ 
+  <script type="text/javascript">
+  const videoElement = document.getElementsByClassName('input_video')[0];
+videoElement.setAttribute('autoplay', '');
+videoElement.setAttribute('muted', '');
+videoElement.setAttribute('playsinline', '');
+
+
+const camera = new Camera(videoElement, {
+  onFrame: async () => {
+    //await hands.send({image: videoElement});
+  },
+  width: 480,
+  height: 480
+});
+camera.start();
+
+
+  
+  </script>
+  <script>
+  function onOpenCvReady() {
+	  
+  }
+  </script>
+  
+</body>
+</html>
